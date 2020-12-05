@@ -10,17 +10,20 @@ const Featured = () => {
 
 		axios
 			.get("https://api.spotify.com/v1/browse/featured-playlists")
-			.then((res) => {
-				console.log(
-					res.data.json().then((data) => {
-						console.log(data);
-					})
-				);
+			.then((response) => {
+				console.log(response);
+				setFeatured(response.data.playlists.items);
 			})
 			.catch((error) => console.error(error));
 	}, []);
 
-	return <div></div>;
+	return (
+		<div>
+			{featured.map((feat) => {
+				return <h1>{feat.name}</h1>;
+			})}
+		</div>
+	);
 };
 
 export default Featured;
