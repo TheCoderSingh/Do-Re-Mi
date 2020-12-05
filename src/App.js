@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./App.scss";
 import Featured from "./components/Featured/Featured";
+import NewReleases from "./components/NewReleases/NewReleases";
 import { getCookie } from "./utils/functions";
 
 const {
@@ -60,7 +61,10 @@ function App() {
 	return (
 		<div className="App">
 			{token ? (
-				<Featured />
+				<div>
+					<Featured />
+					<NewReleases />
+				</div>
 			) : (
 				<button type="submit" onClick={handleLogin}>
 					Login with Spotify

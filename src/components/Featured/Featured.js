@@ -23,7 +23,7 @@ const Featured = () => {
 		<section id="featured">
 			<div className="inner">
 				<h1 className="section-head">Featured</h1>
-				<div id="featured-playlists">
+				<div className="playlists">
 					{featured.map((feat) => {
 						return (
 							<Playlist
