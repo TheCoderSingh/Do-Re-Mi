@@ -29,11 +29,8 @@ const NewReleases = () => {
 								key={newRelease.id}
 								image={newRelease.images[0].url}
 								name={newRelease.name}
-								// description={newRelease.description}
 								tracks={newRelease.href}
-							>
-								{/* {feat.name} */}
-							</NewRelease>
+							></NewRelease>
 						);
 					})}
 				</div>

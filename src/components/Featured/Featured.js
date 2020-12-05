@@ -32,9 +32,7 @@ const Featured = () => {
 								name={feat.name}
 								description={feat.description}
 								tracks={feat.tracks.href}
-							>
-								{feat.name}
-							</Playlist>
+							></Playlist>
 						);
 					})}
 				</div>
