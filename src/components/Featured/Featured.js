@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { setAuthHeader } from "../../utils/functions";
+import Playlist from "../Playlist/Playlist";
+import "./Featured.scss";
 
 const Featured = () => {
 	const [featured, setFeatured] = useState([]);
@@ -18,11 +20,26 @@ const Featured = () => {
 	}, []);
 
 	return (
-		<div>
-			{featured.map((feat) => {
-				return <h1>{feat.name}</h1>;
-			})}
-		</div>
+		<section id="featured">
+			<div className="inner">
+				<h1 className="section-head">Featured</h1>
+				<div id="featured-playlists">
+					{featured.map((feat) => {
+						return (
+							<Playlist
+								key={feat.id}
+								image={feat.images[0].url}
+								name={feat.name}
+								description={feat.description}
+								tracks={feat.tracks.href}
+							>
+								{feat.name}
+							</Playlist>
+						);
+					})}
+				</div>
+			</div>
+		</section>
 	);
 };
 
