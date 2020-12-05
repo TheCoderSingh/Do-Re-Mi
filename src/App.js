@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./App.scss";
 import Featured from "./components/Featured/Featured";
 import NewReleases from "./components/NewReleases/NewReleases";
+import TopTracks from "./components/Top/TopTracks";
 import TopArtists from "./components/Top/TopArtists";
 import { getCookie } from "./utils/functions";
 
@@ -15,7 +16,7 @@ function App() {
 	const [token, setToken] = useState();
 
 	const handleLogin = () => {
-		window.location = `${REACT_APP_AUTHORIZE_URL}?client_id=${REACT_APP_CLIENT_ID}&redirect_uri=${REACT_APP_REDIRECT_URI}&response_type=token&scope=user-top-read`;
+		window.location = `${REACT_APP_AUTHORIZE_URL}?client_id=${REACT_APP_CLIENT_ID}&redirect_uri=${window.location}&response_type=token&scope=user-top-read`;
 	};
 
 	useEffect(() => {
@@ -66,6 +67,7 @@ function App() {
 					<Featured />
 					<NewReleases />
 					<TopArtists />
+					<TopTracks />
 				</div>
 			) : (
 				<button type="submit" onClick={handleLogin}>
