@@ -1,14 +1,14 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Playlist.scss";
 
-const Playlist = ({ name, description, image, tracks }) => {
+const Playlist = ({ id, name, description, image, tracks }) => {
 	return (
 		<div className="playlist">
-			<a href={tracks}>
+			<Link to={`/playlist/${id}`}>
 				<img src={image} alt="Playlist" />
-			</a>
+			</Link>
 			<h3>{name}</h3>
-			{/* <p>{description}</p> */}
 		</div>
 	);
 };

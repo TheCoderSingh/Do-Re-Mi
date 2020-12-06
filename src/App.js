@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.scss";
 import Header from "./components/Header/Header";
 import Featured from "./components/Featured/Featured";
@@ -7,6 +8,7 @@ import TopTracks from "./components/Top/TopTracks";
 import TopArtists from "./components/Top/TopArtists";
 import { getCookie } from "./utils/functions";
 import Login from "./components/Login/Login";
+import Track from "./components/Tracks/Track";
 
 function App() {
 	const [token, setToken] = useState();
@@ -54,17 +56,25 @@ function App() {
 
 	return (
 		<div className="App">
-			{token ? (
-				<div>
-					<Header />
-					<Featured />
-					<NewReleases />
-					<TopArtists />
-					<TopTracks />
-				</div>
-			) : (
-				<Login />
-			)}
+			<Router>
+				{token ? (
+					<div>
+						<Header />
+						<Switch>
+							<Route path="/playlist/:id" component={Track} />
+
+							<Route exact path="/">
+								<Featured />
+								<NewReleases />
+								<TopArtists />
+								<TopTracks />
+							</Route>
+						</Switch>
+					</div>
+				) : (
+					<Login />
+				)}
+			</Router>
 		</div>
 	);
 }

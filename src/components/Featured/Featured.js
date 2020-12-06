@@ -28,6 +28,7 @@ const Featured = () => {
 						return (
 							<Playlist
 								key={feat.id}
+								id={feat.id}
 								image={feat.images[0].url}
 								name={feat.name}
 								description={feat.description}
