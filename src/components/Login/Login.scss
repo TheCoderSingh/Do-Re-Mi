@@ -1,0 +1,32 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
+
+#login {
+	height: 100vh;
+	position: relative;
+}
+
+#login-content {
+	margin: 0;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+
+	img {
+		width: 400px;
+		height: 400px;
+	}
+
+	button {
+		display: block;
+		padding: 12px 8px;
+		margin: 0 auto;
+		background: #1db954;
+		border: none;
+		color: #fff;
+		width: 80%;
+		border-radius: 3px;
+		cursor: pointer;
+	}
+}

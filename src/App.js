@@ -1,23 +1,15 @@
 import React, { useEffect, useState } from "react";
 import "./App.scss";
+import Header from "./components/Header/Header";
 import Featured from "./components/Featured/Featured";
 import NewReleases from "./components/NewReleases/NewReleases";
 import TopTracks from "./components/Top/TopTracks";
 import TopArtists from "./components/Top/TopArtists";
 import { getCookie } from "./utils/functions";
-
-const {
-	REACT_APP_CLIENT_ID,
-	REACT_APP_AUTHORIZE_URL,
-	REACT_APP_REDIRECT_URI,
-} = process.env;
+import Login from "./components/Login/Login";
 
 function App() {
 	const [token, setToken] = useState();
-
-	const handleLogin = () => {
-		window.location = `${REACT_APP_AUTHORIZE_URL}?client_id=${REACT_APP_CLIENT_ID}&redirect_uri=${window.location}&response_type=token&scope=user-top-read`;
-	};
 
 	useEffect(() => {
 		let _token = getCookie("token");
@@ -64,15 +56,14 @@ function App() {
 		<div className="App">
 			{token ? (
 				<div>
+					<Header />
 					<Featured />
 					<NewReleases />
 					<TopArtists />
 					<TopTracks />
 				</div>
 			) : (
-				<button type="submit" onClick={handleLogin}>
-					Login with Spotify
-				</button>
+				<Login />
 			)}
 		</div>
 	);
