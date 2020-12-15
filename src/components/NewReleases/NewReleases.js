@@ -30,7 +30,7 @@ const NewReleases = () => {
 								image={newRelease.images[0].url}
 								name={newRelease.name}
 								tracks={newRelease.href}
-							></NewRelease>
+							/>
 						);
 					})}
 				</div>

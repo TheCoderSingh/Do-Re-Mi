@@ -8,7 +8,7 @@ import TopTracks from "./components/Top/TopTracks";
 import TopArtists from "./components/Top/TopArtists";
 import { getCookie } from "./utils/functions";
 import Login from "./components/Login/Login";
-import Track from "./components/Tracks/Track";
+import Tracks from "./components/Tracks/Tracks";
 
 function App() {
 	const [token, setToken] = useState();
@@ -61,7 +61,7 @@ function App() {
 					<div>
 						<Header />
 						<Switch>
-							<Route path="/playlist/:id" component={Track} />
+							<Route path="/playlist/:id" component={Tracks} />
 
 							<Route exact path="/">
 								<Featured />

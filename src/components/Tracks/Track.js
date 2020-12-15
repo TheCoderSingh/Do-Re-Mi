@@ -1,11 +1,11 @@
 import React from "react";
+import "./Track.scss";
 
-const Track = (name, image) => {
+const Track = ({ name, image }) => {
 	return (
-		<div>
-			Track
-			{/* <img src={image} alt="Playlist" />
-			<h3>{name}</h3> */}
+		<div className="track">
+			<img src={image} alt="Playlist" />
+			<h3>{name}</h3>
 		</div>
 	);
 };

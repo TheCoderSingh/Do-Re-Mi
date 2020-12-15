@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./Playlist.scss";
 
-const Playlist = ({ id, name, description, image, tracks }) => {
+const Playlist = ({ id, name, image }) => {
 	return (
 		<div className="playlist">
 			<Link to={`/playlist/${id}`}>

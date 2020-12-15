@@ -12,7 +12,7 @@ const TopArtists = () => {
 		axios
 			.get("https://api.spotify.com/v1/me/top/artists")
 			.then((response) => {
-				console.log(response.data);
+				console.log(response.data.items);
 				setTopArtists(response.data.items);
 			})
 			.catch((error) => console.error(error));
@@ -27,9 +27,10 @@ const TopArtists = () => {
 						return (
 							<TopArtist
 								key={artist.id}
+								id={artist.id}
 								image={artist.images[0].url}
 								name={artist.name}
-							></TopArtist>
+							/>
 						);
 					})}
 				</div>

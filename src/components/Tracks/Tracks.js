@@ -1,16 +1,20 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { setAuthHeader } from "../../utils/functions";
+import Track from "./Track";
 
-const Tracks = (playlistId) => {
+const Tracks = (path) => {
 	const [tracks, setTracks] = useState([]);
 
 	useEffect(() => {
 		setAuthHeader();
+		let id = path.match.params.id;
 
 		axios
-			.get(`https://api.spotify.com/v1/playlists/${playlistId}/tracks`)
+			.get(`https://api.spotify.com/v1/playlists/${id}/tracks`)
 			.then((response) => {
-				console.log(response.data);
-				// setTracks(response.data.items);
+				console.log(response.data.items);
+				setTracks(response.data.items);
 			})
 			.catch((error) => console.error(error));
 	}, []);
@@ -23,9 +27,9 @@ const Tracks = (playlistId) => {
 						return (
 							<Track
 								key={track.id}
-								image={track.images[0].url}
-								name={track.name}
-							></Track>
+								name={track.track.name}
+								image={track.track.album.images[0].url}
+							/>
 						);
 					})}
 				</div>
